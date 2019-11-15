@@ -1,7 +1,5 @@
 <template>
-  <div id="app">
-    <van-button type="primary">主要按钮</van-button>
-  </div>
+<router-view></router-view>
 </template>
 
 <style lang="less">
