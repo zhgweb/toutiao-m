@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    123
+    <van-button type="primary">主要按钮</van-button>
   </div>
 </template>
 
