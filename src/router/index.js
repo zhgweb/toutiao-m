@@ -1,5 +1,6 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
+import store from '@/store'
 // 路由懒加载引入
 const Layout = () => import('@/views/layout')// 布局组件
 const Home = () => import('@/views/home/index')// 首页组件
@@ -37,5 +38,14 @@ const routes = [
 const router = new VueRouter({
   routes
 })
-
+// 导航守卫登录拦截
+router.beforeEach((to, from, next) => {
+  // 当未登录 且  页面为（个人中心 /user、编辑资料 /user/profile、小智同学 /user/chat）
+  const { user } = store.state
+  if (!user.token && to.path.startsWith('/user')) {
+    // 现实登录后回跳  把当前想访问的地址传递给登录页面
+    return next({ path: '/login', query: { redirectUrl: to.path } })
+  }
+  next()
+})
 export default router
