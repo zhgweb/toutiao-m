@@ -6,7 +6,8 @@ import store from './store'
 import 'amfe-flexible'
 // 使用vant组件库
 import Vant from 'vant'
-import 'vant/lib/index.css'
+// import 'vant/lib/index.css'
+import 'vant/lib/index.less'
 // 覆盖 vant 的样式
 import '@/styles/index.less'
 
